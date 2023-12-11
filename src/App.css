@@ -4,3 +4,52 @@
   padding: 2rem;
   text-align: center;
 }
+
+header {
+  border: 2px solid grey;
+  margin: 1rem;
+}
+
+.user-thumbnail {
+  border: 2px solid pink;
+  margin: 1rem;
+}
+
+.user-thumbnail img {
+  margin: 0rem;
+  width: 3rem;
+}
+
+nav {
+  border: 2px solid brown;
+  margin: 1rem;
+}
+
+.articles {
+  border: 2px solid orange;
+  margin: 1rem;
+}
+
+.articles-list {
+  list-style: none;
+  padding: 0rem;
+}
+
+.article-card {
+  border: 2px solid red;
+  margin: 1rem;
+}
+
+.article-card img {
+  margin: 0rem;
+  width: 10rem;
+}
+
+.article-votes img {
+  margin: 0rem;
+  width: 1rem;
+}
+
+.vote-number {
+  margin: 0.25rem;
+}
