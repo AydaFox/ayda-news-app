@@ -1,13 +1,17 @@
 import axios from "axios";
 
 const aydaNewsApi = axios.create({
-    baseURL: "https://ayda-news-api.onrender.com/api"
+  baseURL: "https://ayda-news-api.onrender.com/api",
 });
 
 export const getArticles = () => {
-    return aydaNewsApi
-        .get("/articles")
-        .then(({ data }) => {
-            return data.articles;
-        });
-}
+  return aydaNewsApi.get("/articles").then(({ data }) => {
+    return data.articles;
+  });
+};
+
+export const getArticleById = (article_id) => {
+  return aydaNewsApi.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};
