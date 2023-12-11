@@ -1,10 +1,11 @@
 import ArticleCard from "./ArticleCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getArticles } from "../utils/axios";
+import { LoadingContext } from "../contexts/LoadingContext";
 
 const Articles = () => {
     const [articles, setArticles] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const { isLoading, setIsLoading } = useContext(LoadingContext);
 
     useEffect(() => {
         setIsLoading(true);
