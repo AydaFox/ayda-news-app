@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Topics from "./Topics";
 
 const Nav = () => {
     return (
         <nav>
-            <p>Home</p>
+            <Link to="/">Home</Link>
             <Topics />
         </nav>
     );
