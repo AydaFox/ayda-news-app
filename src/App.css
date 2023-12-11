@@ -30,7 +30,26 @@ nav {
   margin: 1rem;
 }
 
+.articles-list {
+  list-style: none;
+  padding: 0rem;
+}
+
 .article-card {
   border: 2px solid red;
   margin: 1rem;
+}
+
+.article-card img {
+  margin: 0rem;
+  width: 10rem;
+}
+
+.article-votes img {
+  margin: 0rem;
+  width: 1rem;
+}
+
+.vote-number {
+  margin: 0.25rem;
 }
