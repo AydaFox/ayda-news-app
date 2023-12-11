@@ -15,6 +15,11 @@ header {
   margin: 1rem;
 }
 
+.user-thumbnail img {
+  margin: 0rem;
+  width: 3rem;
+}
+
 nav {
   border: 2px solid brown;
   margin: 1rem;
