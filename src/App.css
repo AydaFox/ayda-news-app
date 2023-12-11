@@ -53,3 +53,8 @@ nav {
 .vote-number {
   margin: 0.25rem;
 }
+
+.single-article {
+  border: 2px solid green;
+  margin: 1rem;
+}

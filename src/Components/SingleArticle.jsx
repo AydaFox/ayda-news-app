@@ -25,7 +25,7 @@ const SingleArticle = () => {
   }
 
   return (
-    <article>
+    <article className="single-article">
       <p>{article.topic}</p>
       <p>{article.author}</p>
       <p>{dateFormatter(article.created_at)}</p>
