@@ -1,7 +1,10 @@
+import Topics from "./Topics";
+
 const Nav = () => {
     return (
         <nav>
-            Home Topics
+            <p>Home</p>
+            <Topics />
         </nav>
     );
 }
