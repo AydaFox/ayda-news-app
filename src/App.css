@@ -4,3 +4,28 @@
   padding: 2rem;
   text-align: center;
 }
+
+header {
+  border: 2px solid grey;
+  margin: 1rem;
+}
+
+.user-thumbnail {
+  border: 2px solid pink;
+  margin: 1rem;
+}
+
+nav {
+  border: 2px solid brown;
+  margin: 1rem;
+}
+
+.articles {
+  border: 2px solid orange;
+  margin: 1rem;
+}
+
+.article-card {
+  border: 2px solid red;
+  margin: 1rem;
+}
