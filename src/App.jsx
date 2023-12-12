@@ -1,10 +1,11 @@
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { UserProvider } from './contexts/UserContext';
-import { LoadingProvider } from './contexts/LoadingContext';
-import Articles from './Components/Articles';
-import Header from './Components/Header'
-import Nav from './Components/Nav'
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { UserProvider } from "./contexts/UserContext";
+import { LoadingProvider } from "./contexts/LoadingContext";
+import Articles from "./Components/Articles";
+import Header from "./Components/Header";
+import Nav from "./Components/Nav";
+import SingleArticle from "./Components/SingleArticle";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<Articles />} />
+            <Route path="/article/:article_id" element={<SingleArticle />} />
           </Routes>
         </LoadingProvider>
       </UserProvider>
@@ -22,4 +24,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

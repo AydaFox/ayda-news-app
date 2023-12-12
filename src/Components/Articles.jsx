@@ -4,35 +4,33 @@ import { getArticles } from "../utils/axios";
 import { LoadingContext } from "../contexts/LoadingContext";
 
 const Articles = () => {
-    const [articles, setArticles] = useState([]);
-    const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const [articles, setArticles] = useState([]);
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
 
-    useEffect(() => {
-        setIsLoading(true);
-        getArticles()
-            .then((articles) => {
-                setArticles(articles);
-            })
-            .then(() => {
-                setIsLoading(false);
-            });
-    }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    getArticles()
+      .then((articles) => {
+        setArticles(articles);
+      })
+      .then(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
-    if (isLoading) {
-        return (<h2>Loading...</h2>)
-    }
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
 
-    return (
-        <section className="articles">
-            <ul className="articles-list">
-                {
-                    articles.map((article) => {
-                        return (<ArticleCard key={ article.article_id } article={ article }/>);
-                    })
-                }
-            </ul>
-        </section>
-    );
-}
+  return (
+    <section className="articles">
+      <ul className="articles-list">
+        {articles.map((article) => {
+          return <ArticleCard key={article.article_id} article={article} />;
+        })}
+      </ul>
+    </section>
+  );
+};
 
 export default Articles;
