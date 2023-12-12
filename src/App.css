@@ -42,6 +42,7 @@ ul {
 
 .article-card-link {
   width: 30rem;
+  max-width: 90%;
   margin: auto;
   border: 1px solid lightpink;
 }

@@ -5,9 +5,11 @@ import { postComment } from "../utils/axios";
 const CommentAdder = ({ article_id, setComments }) => {
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
+  const [isPosting, setIsPosting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsPosting(true);
     postComment(article_id, user.username, newComment)
       .then((response) => {
         setComments((currComments) => {
@@ -16,6 +18,7 @@ const CommentAdder = ({ article_id, setComments }) => {
       })
       .then(() => {
         setNewComment("");
+        setIsPosting(false);
       });
   };
 
@@ -33,7 +36,9 @@ const CommentAdder = ({ article_id, setComments }) => {
         value={newComment}
         onChange={(event) => setNewComment(event.target.value)}
       ></textarea>
-      <button className="comment-adder-button">comment</button>
+      <button className="comment-adder-button" disabled={isPosting}>
+        comment
+      </button>
     </form>
   );
 };
