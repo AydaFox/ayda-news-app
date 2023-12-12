@@ -38,13 +38,20 @@ ul {
 .article-card {
   border: 2px solid red;
   margin: 1rem;
-  transition: transform 0.3s;
 }
 
-.article-card:hover {
+.article-card-link {
+  width: 30rem;
+  margin: auto;
+  border: 1px solid lightpink;
+}
+
+.article-card-link:hover {
   cursor: pointer;
   background-color: rgb(255, 234, 237);
+  border: 1px solid black;
   transform: translateY(-2px);
+  transition: transform 0.3s;
   box-shadow: 0px 1px 5px 1px;
 }
 
@@ -53,9 +60,18 @@ ul {
   width: 10rem;
 }
 
-.article-votes img {
+.votes img {
   margin: 0rem;
   width: 1rem;
+  cursor: pointer;
+}
+
+.votes img:hover {
+  filter: drop-shadow(0px 0px 2px red);
+}
+
+.votes img:active {
+  filter: drop-shadow(0px 0px 0px black);
 }
 
 .vote-number {
@@ -82,11 +98,12 @@ ul {
   margin: 1rem;
 }
 
-.comment-votes img {
-  margin: 0rem;
-  width: 1rem;
+.comment-user {
+  font-weight: bold;
 }
 
-.comment-user {
+.error-message {
+  background-color: rgb(228, 0, 0);
+  color: white;
   font-weight: bold;
 }
