@@ -25,19 +25,27 @@ nav {
   margin: 1rem;
 }
 
+ul {
+  list-style: none;
+  padding: 0rem;
+}
+
 .articles {
   border: 2px solid orange;
   margin: 1rem;
 }
 
-.articles-list {
-  list-style: none;
-  padding: 0rem;
-}
-
 .article-card {
   border: 2px solid red;
   margin: 1rem;
+  transition: transform 0.3s;
+}
+
+.article-card:hover {
+  cursor: pointer;
+  background-color: rgb(255, 234, 237);
+  transform: translateY(-2px);
+  box-shadow: 0px 1px 5px 1px;
 }
 
 .article-card img {
@@ -62,4 +70,23 @@ nav {
 .single-article-img {
   width: 40rem;
   max-width: 70%;
+}
+
+.comments {
+  border: 2px solid blue;
+  margin: 1rem;
+}
+
+.comment-card {
+  border: 2px solid lightblue;
+  margin: 1rem;
+}
+
+.comment-votes img {
+  margin: 0rem;
+  width: 1rem;
+}
+
+.comment-user {
+  font-weight: bold;
 }
