@@ -38,6 +38,14 @@ ul {
 .article-card {
   border: 2px solid red;
   margin: 1rem;
+  transition: transform 0.3s;
+}
+
+.article-card:hover {
+  cursor: pointer;
+  background-color: rgb(255, 234, 237);
+  transform: translateY(-2px);
+  box-shadow: 0px 1px 5px 1px;
 }
 
 .article-card img {
