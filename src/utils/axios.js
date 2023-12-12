@@ -24,10 +24,10 @@ export const getComments = (article_id) => {
     });
 };
 
-export const patchVotes = (article_id, num) => {
+export const patchVotes = (path, id, num) => {
   return aydaNewsApi
-    .patch(`articles/${article_id}`, { inc_votes: num })
+    .patch(`${path}s/${id}`, { inc_votes: num })
     .then(({ data }) => {
-      return data.article;
+      return data[path];
     });
 };
