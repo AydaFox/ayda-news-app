@@ -1,9 +1,9 @@
 const Topics = () => {
-    return (
-        <>
-            <p>Topics</p>
-        </>
-    );
+  return (
+    <>
+      <p>Topics</p>
+    </>
+  );
 };
 
 export default Topics;
