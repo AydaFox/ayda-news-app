@@ -10,19 +10,27 @@ const Votes = ({ article, setArticle }) => {
   const clickUpHandler = () => {
     setVoteCount((currVoteCount) => currVoteCount + 1);
     patchVotes(article.article_id, 1).catch((error) => {
+      console.log(error);
       setVoteCount((currVoteCount) => currVoteCount - 1);
       setErr("Something went wrong, please try again.");
     });
   };
 
-  const clickDownHandler = () => {};
+  const clickDownHandler = () => {
+    setVoteCount((currVoteCount) => currVoteCount - 1);
+    patchVotes(article.article_id, -1).catch((error) => {
+      console.log(error);
+      setVoteCount((currVoteCount) => currVoteCount + 1);
+      setErr("Something went wrong, please try again.");
+    });
+  };
 
   return (
     <div className="votes">
       {err ? <p className="error-message">{err}</p> : null}
       <img src={arrowup} onClick={clickUpHandler}></img>
       <span className="vote-number">{voteCount}</span>
-      <img src={arrowdown}></img>
+      <img src={arrowdown} onClick={clickDownHandler}></img>
     </div>
   );
 };
