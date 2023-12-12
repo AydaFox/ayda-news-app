@@ -58,3 +58,8 @@ nav {
   border: 2px solid green;
   margin: 1rem;
 }
+
+.single-article-img {
+  width: 40rem;
+  max-width: 70%;
+}

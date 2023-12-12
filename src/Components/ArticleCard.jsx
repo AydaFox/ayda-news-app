@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router";
 import { dateFormatter } from "../utils/dateFormatter";
+import arrowup from "../assets/arrow-up-black.png";
+import arrowdown from "../assets/arrow-down-black.png";
 
 const ArticleCard = ({ article }) => {
   const navigate = useNavigate();
@@ -15,9 +17,9 @@ const ArticleCard = ({ article }) => {
       <p className="article-author">Posted by: {article.author}</p>
       <p className="article-time">{dateFormatter(article.created_at)}</p>
       <div className="article-votes">
-        <img src="./src/assets/arrow-up-black.png"></img>
+        <img src={arrowup}></img>
         <span className="vote-number">{article.votes}</span>
-        <img src="./src/assets/arrow-down-black.png"></img>
+        <img src={arrowdown}></img>
       </div>
     </li>
   );
