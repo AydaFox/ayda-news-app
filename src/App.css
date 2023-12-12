@@ -53,9 +53,10 @@ ul {
   width: 10rem;
 }
 
-.article-votes img {
+.votes img {
   margin: 0rem;
   width: 1rem;
+  cursor: pointer;
 }
 
 .vote-number {
@@ -82,11 +83,12 @@ ul {
   margin: 1rem;
 }
 
-.comment-votes img {
-  margin: 0rem;
-  width: 1rem;
+.comment-user {
+  font-weight: bold;
 }
 
-.comment-user {
+.error-message {
+  background-color: rgb(228, 0, 0);
+  color: white;
   font-weight: bold;
 }

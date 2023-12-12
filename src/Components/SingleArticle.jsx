@@ -37,7 +37,7 @@ const SingleArticle = () => {
         <h2 className="single-article-title">{article.title}</h2>
         <img src={article.article_img_url} className="single-article-img"></img>
         <p className="single-article-body">{article.body}</p>
-        <Votes />
+        <Votes article={article}  setArticle={setArticle} />
       </article>
       <Comments article_id={article_id} />
     </div>
