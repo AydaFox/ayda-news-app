@@ -10,8 +10,8 @@ const Articles = () => {
   useEffect(() => {
     setIsLoading(true);
     getArticles()
-      .then((articles) => {
-        setArticles(articles);
+      .then((response) => {
+        setArticles(response);
       })
       .then(() => {
         setIsLoading(false);
