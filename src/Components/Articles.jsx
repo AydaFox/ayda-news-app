@@ -1,11 +1,11 @@
 import ArticleCard from "./ArticleCard";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { getArticles } from "../utils/axios";
-import { LoadingContext } from "../contexts/LoadingContext";
+import Loading from "./Loading";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,9 +18,7 @@ const Articles = () => {
       });
   }, []);
 
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
+  if (isLoading) return <Loading />;
 
   return (
     <section className="articles">

@@ -1,15 +1,24 @@
 import { useEffect, useState } from "react";
 import { getComments } from "../utils/axios";
 import CommentCard from "./CommentCard";
+import Loading from "./Loading";
 
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    getComments(article_id).then((response) => {
-      setComments(response);
-    });
+    setIsLoading(true);
+    getComments(article_id)
+      .then((response) => {
+        setComments(response);
+      })
+      .then(() => {
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) return <Loading />;
 
   return (
     <div className="comments">
