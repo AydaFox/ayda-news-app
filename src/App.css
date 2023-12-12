@@ -93,6 +93,11 @@ ul {
   margin: 1rem;
 }
 
+.comment-adder {
+  border: 2px solid darkblue;
+  margin: 1rem;
+}
+
 .comment-card {
   border: 2px solid lightblue;
   margin: 1rem;
