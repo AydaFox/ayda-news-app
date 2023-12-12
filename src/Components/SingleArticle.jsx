@@ -1,17 +1,17 @@
 import { useParams } from "react-router";
 import { getArticleById } from "../utils/axios";
-import { useContext, useEffect, useState } from "react";
-import { LoadingContext } from "../contexts/LoadingContext";
+import { useEffect, useState } from "react";
 import { dateFormatter } from "../utils/dateFormatter";
 import arrowup from "../assets/arrow-up-black.png";
 import arrowdown from "../assets/arrow-down-black.png";
 import Comments from "./Comments";
 import Votes from "./Votes";
+import Loading from "./Loading";
 
 const SingleArticle = () => {
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,9 +24,7 @@ const SingleArticle = () => {
       });
   }, []);
 
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
+  if (isLoading) return <Loading />;
 
   return (
     <div>
@@ -48,8 +46,10 @@ const SingleArticle = () => {
 
 export default SingleArticle;
 
-{/* <div className="article-votes">
+{
+  /* <div className="article-votes">
   <img src={arrowup}></img>
   <span className="vote-number">{article.votes}</span>
   <img src={arrowdown}></img>
-</div> */}
+</div> */
+}
