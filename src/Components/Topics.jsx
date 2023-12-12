@@ -3,24 +3,29 @@ import { getTopics } from "../utils/axios";
 
 const Topics = () => {
   const [topics, setTopics] = useState([]);
+  const [dropdown, setDropdown] = useState(null);
 
   useEffect(() => {
     getTopics().then((response) => {
       setTopics(response);
-    })
+    });
   }, []);
 
-  console.log(topics);
+  const toggleDropdown = () => {
+    setDropdown((currDropdown) => {
+      return currDropdown ? null : "visible";
+    });
+  };
 
   return (
     <>
-      <div>Topics</div>
-      <ul className="topic-dropdown">
-        {
-          topics.map((topic) => {
-            return <li key={topic.slug}>{topic.slug}</li>
-          })
-        }
+      <div className="nav-button" onClick={toggleDropdown}>
+        Topics
+      </div>
+      <ul className={`topic-dropdown ${dropdown}`}>
+        {topics.map((topic) => {
+          return <li key={topic.slug}>{topic.slug}</li>;
+        })}
       </ul>
     </>
   );
