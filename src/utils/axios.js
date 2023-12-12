@@ -46,3 +46,9 @@ export const postComment = (article_id, username, body) => {
 export const deleteComment = (comment_id) => {
   return aydaNewsApi.delete(`/comments/${comment_id}`);
 };
+
+export const getTopics = () => {
+  return aydaNewsApi.get("/topics").then(({ data }) => {
+    return data.topics;
+  });
+};
