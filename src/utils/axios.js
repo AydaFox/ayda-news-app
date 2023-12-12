@@ -23,3 +23,11 @@ export const getComments = (article_id) => {
       return data.comments;
     });
 };
+
+export const patchVotes = (path, id, num) => {
+  return aydaNewsApi
+    .patch(`${path}s/${id}`, { inc_votes: num })
+    .then(({ data }) => {
+      return data[path];
+    });
+};
