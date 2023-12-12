@@ -31,3 +31,14 @@ export const patchVotes = (path, id, num) => {
       return data[path];
     });
 };
+
+export const postComment = (article_id, username, body) => {
+  return aydaNewsApi
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: body,
+    })
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
