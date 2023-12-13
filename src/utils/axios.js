@@ -4,10 +4,16 @@ const aydaNewsApi = axios.create({
   baseURL: "https://ayda-news-api.onrender.com/api",
 });
 
-export const getArticles = () => {
-  return aydaNewsApi.get("/articles").then(({ data }) => {
-    return data.articles;
-  });
+export const getArticles = (topic) => {
+  return aydaNewsApi
+    .get("/articles", {
+      params: {
+        topic: topic,
+      },
+    })
+    .then(({ data }) => {
+      return data.articles;
+    });
 };
 
 export const getArticleById = (article_id) => {

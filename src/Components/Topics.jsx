@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getTopics } from "../utils/axios";
+import { Link } from "react-router-dom";
 
 const Topics = () => {
   const [topics, setTopics] = useState([]);
-  const [dropdown, setDropdown] = useState(null);
 
   useEffect(() => {
     getTopics().then((response) => {
@@ -11,23 +11,27 @@ const Topics = () => {
     });
   }, []);
 
-  const toggleDropdown = () => {
-    setDropdown((currDropdown) => {
-      return currDropdown ? null : "visible";
-    });
-  };
-
   return (
-    <>
-      <div className="nav-button" onClick={toggleDropdown}>
-        Topics
-      </div>
-      <ul className={`topic-dropdown ${dropdown}`}>
+    <div className="dropdown">
+      <button className="nav-button">
+        Topics <span className="dropdown-arrow">&#10151;</span>
+      </button>
+      <div className={`dropdown-topics`}>
         {topics.map((topic) => {
-          return <li key={topic.slug}>{topic.slug}</li>;
+          return (
+            <Link
+              to={`/articles/${topic.slug}`}
+              className="link"
+              key={topic.slug}
+            >
+              {`${topic.slug[0].toUpperCase()}${topic.slug
+                .slice(1)
+                .toLowerCase()}`}
+            </Link>
+          );
         })}
-      </ul>
-    </>
+      </div>
+    </div>
   );
 };
 

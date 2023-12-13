@@ -2,10 +2,13 @@ import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/axios";
 import Loading from "./Loading";
+import { useParams } from "react-router-dom";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { topic } = useParams();
+
 
   useEffect(() => {
     setIsLoading(true);
