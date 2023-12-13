@@ -56,7 +56,8 @@ nav .link {
   background-color: white;
 }
 
-nav .link:hover, .dropdown:hover .nav-button {
+nav .link:hover,
+.dropdown:hover .nav-button {
   background-color: rgb(255, 205, 205);
 }
 

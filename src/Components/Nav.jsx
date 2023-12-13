@@ -4,7 +4,9 @@ import Topics from "./Topics";
 const Nav = () => {
   return (
     <nav>
-      <Link to="/" className="link">Home</Link>
+      <Link to="/" className="link">
+        Home
+      </Link>
       <Topics />
     </nav>
   );

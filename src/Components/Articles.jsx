@@ -24,6 +24,11 @@ const Articles = () => {
 
   return (
     <section className="articles">
+      {topic ? (
+        <h2 className="topic-title">{`${topic[0].toUpperCase()}${topic
+          .slice(1)
+          .toLowerCase()}`}</h2>
+      ) : null}
       <ul className="articles-list">
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} article={article} />;
