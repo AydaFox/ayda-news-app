@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getComments } from "../utils/axios";
 import CommentCard from "./CommentCard";
 import Loading from "./Loading";
+import CommentAdder from "./CommentAdder";
 
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
@@ -23,6 +24,7 @@ const Comments = ({ article_id }) => {
   return (
     <div className="comments">
       <h3>Comments</h3>
+      <CommentAdder article_id={article_id} setComments={setComments} />
       <ul className="comments-list">
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;

@@ -18,7 +18,6 @@ const Votes = ({ article, comment }) => {
     setVoteCount((currVoteCount) => currVoteCount + 1);
     setErr(null);
     patchVotes(path, element[element_id], 1).catch((error) => {
-      console.log(error);
       setVoteCount((currVoteCount) => currVoteCount - 1);
       setErr("Something went wrong, please try again.");
     });
@@ -28,7 +27,6 @@ const Votes = ({ article, comment }) => {
     setVoteCount((currVoteCount) => currVoteCount - 1);
     setErr(null);
     patchVotes(path, element[element_id], -1).catch((error) => {
-      console.log(error);
       setVoteCount((currVoteCount) => currVoteCount + 1);
       setErr("Something went wrong, please try again.");
     });

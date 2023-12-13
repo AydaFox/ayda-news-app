@@ -42,6 +42,7 @@ ul {
 
 .article-card-link {
   width: 30rem;
+  max-width: 90%;
   margin: auto;
   border: 1px solid lightpink;
 }
@@ -90,6 +91,11 @@ ul {
 
 .comments {
   border: 2px solid blue;
+  margin: 1rem;
+}
+
+.comment-adder {
+  border: 2px solid darkblue;
   margin: 1rem;
 }
 
