@@ -9,17 +9,16 @@ const Articles = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { topic } = useParams();
 
-
   useEffect(() => {
     setIsLoading(true);
-    getArticles()
+    getArticles(topic)
       .then((response) => {
         setArticles(response);
       })
       .then(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [topic]);
 
   if (isLoading) return <Loading />;
 
