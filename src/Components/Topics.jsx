@@ -14,7 +14,7 @@ const Topics = () => {
   return (
     <div className="dropdown">
       <button className="nav-button">
-        Topics <span className="dropdown-arrow">&#10151;</span>
+        Topics <span className="dropdown-arrow">&#8964;</span>
       </button>
       <div className={`dropdown-topics`}>
         {topics.map((topic) => {
