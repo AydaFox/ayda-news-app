@@ -14,21 +14,13 @@ const Articles = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const sortBy = searchParams.get("sort_by");
-  const sortByComments = searchParams.get("sort_by") === "comment_count";
   const order = searchParams.get("order");
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles(topic, sortByComments ? null : sortBy, order)
+    getArticles(topic, sortBy, order)
       .then((response) => {
-        if (sortByComments) {
-          sortedArticles = response.sort((a, b) => {
-            return b.comment_count - a.comment_count;
-          });
-          setArticles(sortedArticles);
-        } else {
-          setArticles(response);
-        }
+        setArticles(response);
         setIsLoading(false);
         setApiError(null);
       })
@@ -46,9 +38,7 @@ const Articles = () => {
 
   return (
     <section className="articles">
-      <SortBar
-        setSearchParams={setSearchParams}
-      />
+      <SortBar setSearchParams={setSearchParams} />
       {topic ? (
         <h2 className="topic-title">{`${topic[0].toUpperCase()}${topic
           .slice(1)
