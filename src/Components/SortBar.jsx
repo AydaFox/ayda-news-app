@@ -1,5 +1,17 @@
-const SortBar = ({ setSearchParams }) => {
-  const toggleOrder = () => {};
+const SortBar = ({ searchParams, setSearchParams }) => {
+  const order = searchParams.get("order") ? searchParams.get("order") : "desc";
+
+  const toggleOrder = () => {
+    setSearchParams((currSearchParams) => {
+      const sortBy = currSearchParams.get("sort_by");
+      if (sortBy) {
+        return { sort_by: sortBy, order: order === "desc" ? "asc" : "desc" };
+      } else {
+        return { order: order === "desc" ? "asc" : "desc" };
+      }
+    });
+  };
+
   const handleSortByClick = (e) => {
     switch (e.target.innerText) {
       case "Date":
@@ -24,9 +36,12 @@ const SortBar = ({ setSearchParams }) => {
         <button onClick={handleSortByClick}>Comments</button>
         <button onClick={handleSortByClick}>Votes</button>
       </div>
-      <button className="order" onClick={toggleOrder}>
-        Change order Acending/Descending
-      </button>
+      <div className="order">
+        <label htmlFor="order-button">Change order:</label>
+        <button id="order-button" onClick={toggleOrder}>
+          {order === "desc" ? "Descending" : "Ascending"}
+        </button>
+      </div>
     </div>
   );
 };

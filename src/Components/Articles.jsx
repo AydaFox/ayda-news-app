@@ -32,13 +32,13 @@ const Articles = () => {
 
   if (apiError) {
     return <Error msg={apiError} />;
-  } else if (!articles.length) {
+  } else if (!articles.length && !isLoading) {
     return <h2>No articles have been posted</h2>;
   }
 
   return (
     <section className="articles">
-      <SortBar setSearchParams={setSearchParams} />
+      <SortBar searchParams={searchParams} setSearchParams={setSearchParams} />
       {topic ? (
         <h2 className="topic-title">{`${topic[0].toUpperCase()}${topic
           .slice(1)
