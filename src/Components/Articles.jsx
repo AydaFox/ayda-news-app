@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { getArticles } from "../utils/axios";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
+import Error from "./Error";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
   const { topic } = useParams();
 
   useEffect(() => {
@@ -17,10 +19,18 @@ const Articles = () => {
       })
       .then(() => {
         setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setApiError(err.response.data.msg);
       });
   }, [topic]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) {
+    return <Loading />;
+  } else if (apiError) {
+    return <Error msg={apiError}/>
+  }
 
   return (
     <section className="articles">

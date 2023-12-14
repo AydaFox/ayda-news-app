@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { postComment } from "../utils/axios";
+import Error from "./Error";
 
 const CommentAdder = ({ article_id, setComments }) => {
   const { user } = useContext(UserContext);
@@ -47,7 +48,7 @@ const CommentAdder = ({ article_id, setComments }) => {
           comment
         </button>
       </form>
-      {err ? <p className="error-message">{err}</p> : null}
+      {err ? <p className="error-message"><Error msg={err}/></p> : null}
     </>
   );
 };
