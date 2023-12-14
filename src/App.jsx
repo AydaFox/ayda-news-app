@@ -15,8 +15,8 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Articles />} />
-          <Route path="/article/:article_id" element={<SingleArticle />} />
           <Route path="/articles/:topic" element={<Articles />} />
+          <Route path="/article/:article_id" element={<SingleArticle />} />
           <Route path="*" element={<Error msg="Route not found"/>}/>
         </Routes>
       </UserProvider>

@@ -1,13 +1,31 @@
-const SortBar = () => {
+const SortBar = ({ setSearchParams }) => {
   const toggleOrder = () => {};
 
   return (
     <div className="sort-by">
       <p>Sort by:</p>
       <div className="sort-queries">
-        <button>Date</button>
-        <button>Comments</button>
-        <button>Votes</button>
+        <button
+          onClick={() => {
+            setSearchParams({ sort_by: "created_at" });
+          }}
+        >
+          Date
+        </button>
+        <button
+          onClick={() => {
+            setSearchParams({ sort_by: "comment_count" });
+          }}
+        >
+          Comments
+        </button>
+        <button
+          onClick={() => {
+            setSearchParams({ sort_by: "votes" });
+          }}
+        >
+          Votes
+        </button>
       </div>
       <button className="order" onClick={toggleOrder}>
         Change order Acending/Descending

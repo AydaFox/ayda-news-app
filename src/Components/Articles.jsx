@@ -2,7 +2,7 @@ import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/axios";
 import Loading from "./Loading";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Error from "./Error";
 import SortBar from "./SortBar";
 
@@ -11,12 +11,24 @@ const Articles = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
   const { topic } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const sortBy = searchParams.get("sort_by");
+  const sortByComments = searchParams.get("sort_by") === "comment_count";
+  const order = searchParams.get("order");
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles(topic)
+    getArticles(topic, sortByComments ? null : sortBy, order)
       .then((response) => {
-        setArticles(response);
+        if (sortByComments) {
+          sortedArticles = response.sort((a, b) => {
+            return b.comment_count - a.comment_count;
+          });
+          setArticles(sortedArticles);
+        } else {
+          setArticles(response);
+        }
         setIsLoading(false);
         setApiError(null);
       })
@@ -24,7 +36,7 @@ const Articles = () => {
         setIsLoading(false);
         setApiError(err.response.data.msg);
       });
-  }, [topic]);
+  }, [topic, searchParams]);
 
   if (apiError) {
     return <Error msg={apiError} />;
@@ -34,7 +46,9 @@ const Articles = () => {
 
   return (
     <section className="articles">
-      <SortBar />
+      <SortBar
+        setSearchParams={setSearchParams}
+      />
       {topic ? (
         <h2 className="topic-title">{`${topic[0].toUpperCase()}${topic
           .slice(1)
