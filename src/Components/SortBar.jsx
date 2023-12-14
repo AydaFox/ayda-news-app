@@ -1,8 +1,4 @@
-import { useSearchParams } from "react-router-dom";
-
 const SortBar = () => {
-  const [searchParams, setSearchParams] = useSearchParams;
-
   const toggleOrder = () => {};
 
   return (
