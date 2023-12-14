@@ -42,7 +42,20 @@ const CommentAdder = ({ article_id, setComments }) => {
           value={newComment}
           onChange={(event) => setNewComment(event.target.value)}
         ></textarea>
-        <button className="comment-adder-button" disabled={isPosting}>
+        <p className="character-count">
+          {280 - newComment.length > 0
+            ? `${280 - newComment.length}/280 characters remaining`
+            : "0/280 characters remaining"}
+        </p>
+        <div className="character-count-error">
+          {280 - newComment.length < 0 ? (
+            <Error msg="over character limit" />
+          ) : null}
+        </div>
+        <button
+          className="comment-adder-button"
+          disabled={isPosting || newComment.length > 280}
+        >
           comment
         </button>
       </form>
