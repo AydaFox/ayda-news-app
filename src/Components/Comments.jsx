@@ -21,14 +21,13 @@ const Comments = ({ article_id }) => {
 
   if (isLoading) {
     return <Loading />;
-  } else if (!comments.length) {
-    return <h2>No comments</h2>;
   }
 
   return (
     <div className="comments">
       <h3>Comments</h3>
       <CommentAdder article_id={article_id} setComments={setComments} />
+      {!comments.length ? <h2>No comments</h2> : null}
       <ul className="comments-list">
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
