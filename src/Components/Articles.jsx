@@ -16,9 +16,8 @@ const Articles = () => {
     getArticles(topic)
       .then((response) => {
         setArticles(response);
-      })
-      .then(() => {
         setIsLoading(false);
+        setApiError(null);
       })
       .catch((err) => {
         setIsLoading(false);
@@ -29,7 +28,9 @@ const Articles = () => {
   if (isLoading) {
     return <Loading />;
   } else if (apiError) {
-    return <Error msg={apiError}/>
+    return <Error msg={apiError} />;
+  } else if (!articles.length) {
+    return <h2>No articles have been posted</h2>;
   }
 
   return (

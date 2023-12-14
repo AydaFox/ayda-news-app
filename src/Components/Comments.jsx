@@ -19,7 +19,11 @@ const Comments = ({ article_id }) => {
       });
   }, []);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) {
+    return <Loading />;
+  } else if (!comments.length) {
+    return <h2>No comments</h2>;
+  }
 
   return (
     <div className="comments">

@@ -2,6 +2,7 @@ import arrowup from "../assets/arrow-up-black.png";
 import arrowdown from "../assets/arrow-down-black.png";
 import { patchVotes } from "../utils/axios";
 import { useState } from "react";
+import Error from "./Error";
 
 const Votes = ({ article, comment }) => {
   let [path, element, element_id] = [];
@@ -37,7 +38,11 @@ const Votes = ({ article, comment }) => {
       <img src={arrowup} onClick={clickUpHandler}></img>
       <span className="vote-number">{voteCount}</span>
       <img src={arrowdown} onClick={clickDownHandler}></img>
-      {err ? <p className="error-message">{err}</p> : null}
+      {err ? (
+        <div className="error-message">
+          <Error msg={err} />
+        </div>
+      ) : null}
     </div>
   );
 };
