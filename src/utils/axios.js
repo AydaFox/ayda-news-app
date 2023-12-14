@@ -4,11 +4,13 @@ const aydaNewsApi = axios.create({
   baseURL: "https://ayda-news-api.onrender.com/api",
 });
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, sortBy, order) => {
   return aydaNewsApi
     .get("/articles", {
       params: {
         topic: topic,
+        sort_by: sortBy,
+        order: order,
       },
     })
     .then(({ data }) => {

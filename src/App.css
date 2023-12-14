@@ -54,10 +54,12 @@ nav .link {
   border: none;
   outline: none;
   background-color: white;
+  height: 50px;
 }
 
 nav .link:hover,
 .dropdown:hover .nav-button {
+  transition: 0.6s;
   background-color: rgb(255, 205, 205);
 }
 
@@ -81,6 +83,38 @@ nav .link:hover,
 .articles {
   border: 2px solid orange;
   margin: 1rem;
+}
+
+.sort-by {
+  overflow: hidden;
+  border: 2px solid purple;
+  margin: 1rem;
+  background-color: rgb(222, 222, 222);
+}
+
+.sort-by p {
+  float: left;
+  margin: 0rem;
+  padding: 1rem;
+}
+
+.sort-queries button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  background-color: inherit;
+  padding: 1rem;
+  float: left;
+  font-size: 1rem;
+}
+
+.sort-queries button:hover {
+  transition: 0.6s;
+  background-color: rgb(255, 157, 255);
+}
+
+.sort-by .order {
+  float: left;
 }
 
 .article-card {
