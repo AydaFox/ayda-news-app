@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { postComment } from "../utils/axios";
+import Error from "./Error";
 
 const CommentAdder = ({ article_id, setComments }) => {
   const { user } = useContext(UserContext);
@@ -11,16 +12,14 @@ const CommentAdder = ({ article_id, setComments }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsPosting(true);
-    setErr(null);
     postComment(article_id, user.username, newComment)
       .then((response) => {
         setComments((currComments) => {
           return [response, ...currComments];
         });
-      })
-      .then(() => {
         setNewComment("");
         setIsPosting(false);
+        setErr(null);
       })
       .catch((error) => {
         setErr("Something went wrong, please try again.");
@@ -47,7 +46,11 @@ const CommentAdder = ({ article_id, setComments }) => {
           comment
         </button>
       </form>
-      {err ? <p className="error-message">{err}</p> : null}
+      {err ? (
+        <div className="error-message">
+          <Error msg={err} />
+        </div>
+      ) : null}
     </>
   );
 };

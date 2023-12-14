@@ -5,24 +5,33 @@ import { dateFormatter } from "../utils/dateFormatter";
 import Comments from "./Comments";
 import Votes from "./Votes";
 import Loading from "./Loading";
+import Error from "./Error";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
     getArticleById(article_id)
       .then((response) => {
         setArticle(response);
-      })
-      .then(() => {
         setIsLoading(false);
+        setApiError(null);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setApiError(err.response.data.msg);
       });
   }, []);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) {
+    return <Loading />;
+  } else if (apiError) {
+    return <Error msg={apiError} />;
+  }
 
   return (
     <div>

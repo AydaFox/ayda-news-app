@@ -4,10 +4,16 @@ const aydaNewsApi = axios.create({
   baseURL: "https://ayda-news-api.onrender.com/api",
 });
 
-export const getArticles = () => {
-  return aydaNewsApi.get("/articles").then(({ data }) => {
-    return data.articles;
-  });
+export const getArticles = (topic) => {
+  return aydaNewsApi
+    .get("/articles", {
+      params: {
+        topic: topic,
+      },
+    })
+    .then(({ data }) => {
+      return data.articles;
+    });
 };
 
 export const getArticleById = (article_id) => {
@@ -45,4 +51,10 @@ export const postComment = (article_id, username, body) => {
 
 export const deleteComment = (comment_id) => {
   return aydaNewsApi.delete(`/comments/${comment_id}`);
+};
+
+export const getTopics = () => {
+  return aydaNewsApi.get("/topics").then(({ data }) => {
+    return data.topics;
+  });
 };

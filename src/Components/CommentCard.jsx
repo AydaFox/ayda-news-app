@@ -3,6 +3,7 @@ import { dateFormatter } from "../utils/dateFormatter";
 import Votes from "./Votes";
 import { UserContext } from "../contexts/UserContext";
 import { deleteComment } from "../utils/axios";
+import Error from "./Error";
 
 const CommentCard = ({ comment }) => {
   const { user } = useContext(UserContext);
@@ -12,10 +13,10 @@ const CommentCard = ({ comment }) => {
 
   const handleDelete = () => {
     setDeleting(true);
-    setErr(null);
     deleteComment(comment.comment_id)
       .then(() => {
         setIsDeleted(true);
+        setErr(null);
       })
       .catch((err) => {
         setDeleting(false);
@@ -44,7 +45,11 @@ const CommentCard = ({ comment }) => {
           delete
         </button>
       ) : null}
-      {err ? <p className="error-message">{err}</p> : null}
+      {err ? (
+        <div className="error-message">
+          <Error msg={err} />
+        </div>
+      ) : null}
     </li>
   );
 };
