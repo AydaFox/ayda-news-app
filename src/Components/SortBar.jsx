@@ -30,14 +30,14 @@ const SortBar = ({ searchParams, setSearchParams }) => {
 
   return (
     <div className="sort-by">
-      <p>Sort by:</p>
+      <p>Sort:</p>
       <div className="sort-queries">
         <button onClick={handleSortByClick}>Date</button>
         <button onClick={handleSortByClick}>Comments</button>
         <button onClick={handleSortByClick}>Votes</button>
       </div>
       <div className="order">
-        <label htmlFor="order-button">Change order:</label>
+        <label htmlFor="order-button">Order:</label>
         <button id="order-button" onClick={toggleOrder}>
           {order === "desc" ? "Descending" : "Ascending"}
         </button>

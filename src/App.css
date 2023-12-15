@@ -3,11 +3,26 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: rgb(255, 249, 249);
+}
+
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  box-sizing: border-box;
 }
 
 header {
-  border: 2px solid grey;
-  margin: 1rem;
+  margin: 0rem 1rem;
+  padding: 0rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(233, 1, 1);
+  color: rgb(245, 245, 245);
+  border-radius: 1rem;
+}
+
+header h1 {
+  text-shadow: 1px 1px black;
 }
 
 ul {
@@ -16,26 +31,37 @@ ul {
 }
 
 .user-thumbnail {
-  border: 2px solid pink;
-  margin: 1rem;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.user-thumbnail img {
+.user-pfp {
   margin: 0rem;
   width: 3rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px black;
+}
+
+.user-thumbnail p {
+  margin: 0px;
 }
 
 nav {
   overflow: hidden;
-  border: 2px solid brown;
-  margin: 1rem;
+  margin: 0rem 1rem;
+  background-color: rgb(20, 20, 20);
+  color: rgb(245, 245, 245);
+  border-radius: 1rem;
 }
 
 nav .link {
   float: left;
   padding: 1rem;
   text-decoration: none;
-  color: black;
+  color: rgb(245, 245, 245);
   font-size: 1rem;
   text-align: center;
 }
@@ -53,21 +79,22 @@ nav .link {
   padding: 1rem;
   border: none;
   outline: none;
-  background-color: white;
+  background-color: rgb(20, 20, 20);
+  color: rgb(245, 245, 245);
   height: 50px;
 }
 
 nav .link:hover,
 .dropdown:hover .nav-button {
-  transition: 0.6s;
-  background-color: rgb(255, 205, 205);
+  transition: 0.5s;
+  background-color: rgb(233, 1, 1);
 }
 
 .dropdown-topics {
   display: none;
   position: absolute;
-  background-color: white;
-  box-shadow: 0px 0px 5px 0px grey;
+  background-color: rgb(20, 20, 20);
+  box-shadow: 1px 1px 2px 0px grey;
   width: 8rem;
 }
 
@@ -81,21 +108,28 @@ nav .link:hover,
 }
 
 .articles {
-  border: 2px solid orange;
-  margin: 1rem;
+  margin: 0rem 1rem;
 }
 
 .sort-by {
-  overflow: hidden;
-  border: 2px solid purple;
-  margin: 1rem;
-  background-color: rgb(222, 222, 222);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0rem;
+  max-width: 100vw;
+  border-bottom: 1px solid rgb(20, 20, 20);
 }
 
 .sort-by p {
-  float: left;
   margin: 0rem;
-  padding: 1rem;
+  padding: 0rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.sort-queries {
+  display: flex;
+  border-right: 1px solid rgb(20, 20, 20);
+  padding-right: 5%;
 }
 
 .sort-queries button {
@@ -103,44 +137,82 @@ nav .link:hover,
   border: none;
   font-family: inherit;
   background-color: inherit;
-  padding: 1rem;
-  float: left;
-  font-size: 1rem;
-}
-
-.sort-queries button:hover {
-  transition: 0.6s;
-  background-color: rgb(255, 157, 255);
+  border-radius: 1rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
 }
 
 .sort-by .order {
-  float: left;
+  font-size: 0.8rem;
+  margin: 0rem 5%;
+}
+
+.sort-by .order label {
+  padding: 0rem 0.5rem;
+}
+
+#order-button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  background-color: inherit;
+  border-radius: 1rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+.sort-queries button:hover,
+#order-button:hover {
+  transition: 0.3s;
+  background-color: rgb(223, 223, 223);
+}
+
+.articles-list {
+  margin: 0rem;
 }
 
 .article-card {
-  border: 2px solid red;
-  margin: 1rem;
+  margin: 0rem;
+  padding: 0rem 1rem;
+  border: 5px solid rgb(255, 249, 249);
+  border-top: 0px solid rgb(255, 249, 249);
+  border-bottom: 1px solid black;
+  display: flex;
+}
+
+.article-card:hover .article-card-link {
+  cursor: pointer;
+  background-color: rgb(223, 223, 223);
 }
 
 .article-card-link {
-  width: 30rem;
+  width: 80%;
   max-width: 90%;
-  margin: auto;
-  border: 1px solid lightpink;
-}
-
-.article-card-link:hover {
-  cursor: pointer;
-  background-color: rgb(255, 234, 237);
-  border: 1px solid black;
-  transform: translateY(-2px);
-  transition: transform 0.3s;
-  box-shadow: 0px 1px 5px 1px;
+  margin: 0rem;
+  padding-left: 10%;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .article-card img {
   margin: 0rem;
   width: 10rem;
+}
+
+.article-card p {
+  margin: 0rem;
+  padding: 0.5rem;
+  font-size: rem;
+}
+
+.article-title {
+  background-color: rgb(233, 1, 1);
+  color: rgb(245, 245, 245);
+  border-radius: 1rem;
+  margin: 0.2rem;
+  padding: 0.5rem;
 }
 
 .votes img {

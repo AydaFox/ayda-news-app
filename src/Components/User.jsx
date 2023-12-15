@@ -6,8 +6,8 @@ const User = () => {
 
   return (
     <section className="user-thumbnail">
-      <p>User: {user.username}</p>
-      <img src={user.avatar_url}></img>
+      <img src={user.avatar_url} className="user-pfp"></img>
+      <p className="username">{user.username}</p>
     </section>
   );
 };
