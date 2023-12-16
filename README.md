@@ -6,7 +6,7 @@ Explore the [Ayda News App](https://ayda-news-app.netlify.app/) for yourself!
 
 ## Description
 
-This is my front end project to create a working app that allows users to view and interact with news articles, similar in functionality to how sites like Reddit work.
+This is my front-end project to create a working app that allows users to view and interact with news articles, similar in functionality to how sites like Reddit work.
 
 On this app you wil be able to:
 1. Browse a list of news articles
@@ -16,7 +16,7 @@ On this app you wil be able to:
 5. Upvote or downvote articles and comments
 6. Comment on an article as a hardcoded user, and delete that user's comments 
 
-## Back End Repo
+## Back-end Repo
 
 My project to develop the API used for this app can be found [here](https://github.com/AydaFox/ayda-news-server).
 
