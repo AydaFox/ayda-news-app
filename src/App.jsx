@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./contexts/UserContext";
-import Articles from "./Components/Articles";
-import Header from "./Components/Header";
-import Nav from "./Components/Nav";
-import SingleArticle from "./Components/SingleArticle";
-import Error from "./Components/Error";
+import Articles from "./components/Articles";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import SingleArticle from "./components/SingleArticle";
+import Error from "./components/Error";
 
 function App() {
   return (
