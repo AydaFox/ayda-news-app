@@ -16,8 +16,11 @@ const ArticleCard = ({ article }) => {
           .toLowerCase()}`}</p>
         <h2 className="article-title">{article.title}</h2>
         <img src={article.article_img_url}></img>
-        <p className="article-author">Posted by: {article.author}</p>
-        <p className="article-time">{dateFormatter(article.created_at)}</p>
+        <div className="article-info">
+          <p className="article-comment-count">Comments: {article.comment_count}</p>
+          <p className="article-author">Posted by: {article.author}</p>
+          <p className="article-time">{dateFormatter(article.created_at)}</p>
+        </div>
       </li>
         <Votes article={article} />
     </section>
