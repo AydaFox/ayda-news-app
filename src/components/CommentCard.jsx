@@ -31,7 +31,7 @@ const CommentCard = ({ comment }) => {
   return (
     <li className="comment-card">
       <p>
-        <span className="comment-user">{comment.author}</span>{" "}
+        <span className="comment-user username">{comment.author}</span>{" "}
         {dateFormatter(comment.created_at)}
       </p>
       <p>{comment.body}</p>

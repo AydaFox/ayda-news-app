@@ -18,7 +18,7 @@ header {
   display: flex;
   justify-content: space-between;
   background-color: rgb(233, 1, 1);
-  color: rgb(245, 245, 245);
+  color: white;
   border-radius: 1rem;
 }
 
@@ -237,6 +237,7 @@ nav .link:hover,
 
 .votes {
   margin: auto;
+  padding: 0.5rem 0rem;
 }
 
 .votes img {
@@ -258,8 +259,30 @@ nav .link:hover,
 }
 
 .single-article {
-  border: 2px solid green;
   margin: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(218, 218, 218);
+}
+
+.single-article-header {
+  display: flex;
+  column-gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.single-article-header p {
+  margin: 0.5rem;
+}
+
+.single-article-title {
+  background-color: rgb(233, 1, 1);
+  color: rgb(245, 245, 245);
+  border-radius: 1rem;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  width: 50rem;
+  max-width: 80%;
 }
 
 .single-article-img {
@@ -267,22 +290,53 @@ nav .link:hover,
   max-width: 70%;
 }
 
+.single-article-body {
+  margin: 1rem auto;
+  width: 45rem;
+  max-width: 70%;
+}
+
 .comments {
-  border: 2px solid blue;
-  margin: 1rem;
+  width: 40rem;
+  max-width: 100%;
+  margin: 1rem auto;
 }
 
 .comment-adder {
-  border: 2px solid darkblue;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-comment-input {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.comment-adder-button {
+  margin: 0.5rem;
+  font-size: 1rem;
+  align-self: flex-end;
+}
+
+.character-count {
+  margin: 0rem;
 }
 
 .comment-card {
-  border: 2px solid lightblue;
   margin: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(206, 206, 255);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.comment-user {
+.delete-comment-button {
+  align-self: flex-end;
+}
+
+.username {
   font-weight: bold;
 }
 

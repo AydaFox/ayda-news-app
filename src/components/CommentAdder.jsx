@@ -31,17 +31,24 @@ const CommentAdder = ({ article_id, setComments }) => {
     <>
       <form className="comment-adder" onSubmit={handleSubmit}>
         <label htmlFor="new-comment-input">
-          comment as <span className="comment-user">{user.username}</span>
+          comment as{" "}
+          <span className="comment-user username">{user.username}</span>
         </label>
         <textarea
           id="new-comment-input"
           className="new-comment-input"
           placeholder="add a new comment"
-          rows="10"
+          rows="5"
           required
           value={newComment}
           onChange={(event) => setNewComment(event.target.value)}
         ></textarea>
+        <button
+          className="comment-adder-button"
+          disabled={isPosting || newComment.length > 280}
+        >
+          comment
+        </button>
         <p className="character-count">
           {280 - newComment.length > 0
             ? `${280 - newComment.length}/280 characters remaining`
@@ -52,12 +59,6 @@ const CommentAdder = ({ article_id, setComments }) => {
             <Error msg="over character limit" />
           ) : null}
         </div>
-        <button
-          className="comment-adder-button"
-          disabled={isPosting || newComment.length > 280}
-        >
-          comment
-        </button>
       </form>
       {err ? (
         <div className="error-message">

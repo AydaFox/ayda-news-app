@@ -36,11 +36,21 @@ const SingleArticle = () => {
   return (
     <div>
       <article className="single-article">
-        <p className="single-article-topic">{article.topic}</p>
-        <p className="single-article-author">{article.author}</p>
-        <p className="single-article-date">
-          {dateFormatter(article.created_at)}
-        </p>
+        <div className="single-article-header">
+          <p className="single-article-topic">
+            {article.topic
+              ? `${article.topic[0].toUpperCase()}${article.topic
+                  .slice(1)
+                  .toLowerCase()}`
+              : null}
+          </p>
+          <p className="single-article-author">
+            Posted by: <span className="username">{article.author}</span>
+          </p>
+          <p className="single-article-date">
+            {dateFormatter(article.created_at)}
+          </p>
+        </div>
         <h2 className="single-article-title">{article.title}</h2>
         <img src={article.article_img_url} className="single-article-img"></img>
         <p className="single-article-body">{article.body}</p>
